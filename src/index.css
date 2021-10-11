@@ -24,7 +24,7 @@
 
 @media screen and (min-width: 501px) and (max-width: 968px) {
   .content-wrapper {
-    padding: 30px 24px;
+    padding: 20px 24px;
   }
 }
 
@@ -32,6 +32,6 @@
 
 @media screen and (min-width: 969px) {
   .content-wrapper {
-    padding: 40px 48px;
+    padding: 20px 48px;
   }
 }

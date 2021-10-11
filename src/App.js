@@ -1,10 +1,11 @@
+import Main from "./components";
 
 
 function App() {
   return (
-    <div className="App">
-      <h1>Project Setup!</h1>
-    </div>
+    <>
+      <Main />
+    </>
   );
 }
 

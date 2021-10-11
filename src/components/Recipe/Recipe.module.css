@@ -1,0 +1,86 @@
+.Recipe {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.Image {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+.Image img {
+  width: 100%;
+  height: 100%;
+  max-width: 20rem;
+  max-height: 20rem;
+  object-fit: cover;
+  border-radius: 5px;
+}
+
+.Header {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.Header h3,
+small {
+  text-align: center;
+}
+
+.Header h3 {
+  margin-right: 0.5rem;
+}
+
+.Information {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem;
+  margin-top: 1rem;
+  width: 100%;
+}
+
+.Information p {
+  margin-top: 1rem;
+  text-align: left;
+}
+
+.ButtonWrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  margin-top: 1rem;
+}
+
+.ButtonWrapper button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  white-space: nowrap;
+  width: 100%;
+  max-width: 20rem;
+  border: none;
+  outline: none;
+  padding: 1rem;
+  font-size: clamp(1rem, 1.2vw, 2.5rem);
+  background: var(--accent-color);
+  color: #000;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  border: 1px solid var(--accent-color);
+}
+
+@media (hover: hover) {
+  .ButtonWrapper button:hover {
+    transition: 0.3s ease-in-out;
+    background: transparent;
+  }
+}

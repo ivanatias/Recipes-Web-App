@@ -1,23 +1,20 @@
 import React from "react";
 import styles from "./Recipe.module.css";
-import Recipe1 from "../../assets/images/pexels-daria-shevtsova-704569.jpg";
 
-const Recipe = () => {
+const Recipe = ({ recipe }) => {
   return (
     <>
       <div className={styles.Recipe}>
         <div className={styles.Image}>
-          <img src={Recipe1} alt="Recipe" />
+          <img
+            src={recipe.recipe.image}
+            alt={recipe.recipe.label}
+            width="260"
+            height="260"
+          />
         </div>
         <div className={styles.Information}>
-          <div className={styles.Header}>
-            <h3>Recipe 1</h3>
-            <small>Calories</small>
-          </div>
-
-          <div className={styles.ButtonWrapper}>
-            <button>View Recipe</button>
-          </div>
+          <h5>{recipe.recipe.label}</h5>
         </div>
       </div>
     </>

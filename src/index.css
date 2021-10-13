@@ -2,7 +2,7 @@
   --base-color: #fff8f0;
   --primary-color: #ab8b67;
   --accent-color: #ffa500;
-  --neutral-color: #dfe0df;
+  --neutral-color: rgb(243, 241, 241);
 }
 
 * {

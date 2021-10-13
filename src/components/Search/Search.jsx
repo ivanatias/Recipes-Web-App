@@ -1,5 +1,6 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router";
+import { useDebounce } from "../../hooks/useDebounce";
 import { FaSearch } from "react-icons/fa";
 import styles from "./Search.module.css";
 
@@ -7,11 +8,19 @@ const Search = ({ setQuery }) => {
   const [search, setSearch] = useState("");
   const history = useHistory();
 
+  const debouncedSearch = useDebounce(search, 350);
+
   const handleSubmit = (event) => {
     event.preventDefault();
-    history.push("/?search=" + search);
-    setQuery(search);
   };
+
+  useEffect(() => {
+    if (search === "") {
+      return;
+    }
+    setQuery(debouncedSearch);
+    history.push("/?search=" + debouncedSearch);
+  }, [debouncedSearch]);
 
   return (
     <div className={styles.SearchRecipe}>
@@ -27,8 +36,7 @@ const Search = ({ setQuery }) => {
             autoFocus
             onChange={(e) => setSearch(e.target.value)}
           />
-
-          <button type="submit">
+          <button>
             <FaSearch />
           </button>
         </div>

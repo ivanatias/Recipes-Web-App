@@ -8,7 +8,7 @@ const Search = ({ setQuery }) => {
   const [search, setSearch] = useState("");
   const history = useHistory();
 
-  const debouncedSearch = useDebounce(search, 350);
+  const debouncedSearch = useDebounce(search, 500);
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -16,6 +16,8 @@ const Search = ({ setQuery }) => {
 
   useEffect(() => {
     if (search === "") {
+      history.push("/");
+      setQuery("chicken");
       return;
     }
     setQuery(debouncedSearch);

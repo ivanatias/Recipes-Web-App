@@ -5,10 +5,11 @@ import { FaSearch } from "react-icons/fa";
 import styles from "./Search.module.css";
 
 const Search = ({ setQuery }) => {
-  const [search, setSearch] = useState("");
+  const [search, setSearch] = useState(""); /*Input Search Text*/
   const history = useHistory();
 
   const debouncedSearch = useDebounce(search, 500);
+  /*For Debounced Search Effect*/
 
   const handleSubmit = (event) => {
     event.preventDefault();
@@ -17,6 +18,7 @@ const Search = ({ setQuery }) => {
   useEffect(() => {
     if (search === "") {
       history.push("/");
+      /*Sets the query to the default "chicken" value in order to display a search recipe example if input is empty*/
       setQuery("chicken");
       return;
     }

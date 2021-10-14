@@ -6,6 +6,7 @@ import styles from "./RecipesGrid.module.css";
 import Spinner from "../Spinner/Spinner";
 
 const RecipesGrid = ({ query }) => {
+  /*RecipesGrid receives the dynamical changing value of the query in order to do recipes fetching each time query's value changes*/
   const path = `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=${process.env.REACT_APP_APP_ID}&app_key=${process.env.REACT_APP_API_KEY}`;
 
   const { data, isLoading, isFetching, isError, error } = useQuery(

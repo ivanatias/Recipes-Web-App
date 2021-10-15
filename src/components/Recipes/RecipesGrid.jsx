@@ -1,9 +1,10 @@
 import React from "react";
 import Recipe from "../Recipe/Recipe";
+import Spinner from "../Spinner/Spinner";
+import Empty from "../Empty/Empty";
 import { useQuery } from "react-query";
 import { getRecipes } from "../../utils/httpRequest/getRecipes";
 import styles from "./RecipesGrid.module.css";
-import Spinner from "../Spinner/Spinner";
 
 const RecipesGrid = ({ query }) => {
   /*RecipesGrid receives the dynamical changing value of the query in order to do recipes fetching each time query's value changes*/
@@ -28,6 +29,7 @@ const RecipesGrid = ({ query }) => {
         data.hits.map((recipe) => (
           <Recipe recipe={recipe} key={recipe.recipe.uri} />
         ))}
+      {data.hits.length === 0 ? <Empty /> : null}
     </div>
   );
 };

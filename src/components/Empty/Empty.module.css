@@ -1,0 +1,12 @@
+.EmptyMessage {
+  font-size: clamp(1rem, 1.1vw, 2rem);
+  font-weight: 600;
+}
+
+.Icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  font-size: clamp(2rem, 2vw, 3rem);
+}

@@ -9,6 +9,11 @@
   transition: all 0.3s ease-in-out;
 }
 
+.RecipeLink {
+  text-decoration: none;
+  color: #000;
+}
+
 .Image {
   display: flex;
   justify-content: center;
@@ -33,7 +38,7 @@
   margin-top: 1rem;
   width: 100%;
   text-align: center;
-  font-size: clamp(1rem, 1.1vw, 2.2rem);
+  font-size: clamp(1rem, 1.2vw, 2.2rem);
 }
 
 @media (hover: hover) {

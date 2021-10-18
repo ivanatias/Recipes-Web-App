@@ -1,4 +1,5 @@
 import Main from "./components";
+import RecipeDetails from "./components/pages/RecipeDetails/RecipeDetails";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import { QueryClient, QueryClientProvider } from "react-query"
 import { ReactQueryDevtools } from 'react-query/devtools';
@@ -11,10 +12,11 @@ function App() {
     <QueryClientProvider client={queryClient}>
       <Router>
         <Switch>
-          <Route path="/" component={Main} />
-          <ReactQueryDevtools initialIsOpen />
+          <Route path="/" exact component={Main} />
+          <Route path="/recipes/:recipeId" exact component={RecipeDetails} />
         </Switch>
       </Router>
+      <ReactQueryDevtools initialIsOpen />
     </QueryClientProvider>
   );
 }

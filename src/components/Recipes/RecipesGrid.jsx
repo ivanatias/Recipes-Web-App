@@ -10,7 +10,7 @@ const RecipesGrid = ({ query }) => {
   /*RecipesGrid receives the dynamical changing value of the query in order to do recipes fetching each time query's value changes*/
   const path = `https://api.edamam.com/api/recipes/v2?type=public&q=${query}&app_id=${process.env.REACT_APP_APP_ID}&app_key=${process.env.REACT_APP_API_KEY}`;
 
-  const { data, isLoading, isFetching, isError, error } = useQuery(
+  const { data, isLoading, isFetching, isError } = useQuery(
     ["recipes", query],
     () => getRecipes(path)
   );
@@ -19,16 +19,15 @@ const RecipesGrid = ({ query }) => {
     return <Spinner />;
   }
 
-  if (isError) {
-    return <div>Whooops! something went wrong ... Error: {error.message}</div>;
+  if (isError || data === undefined) {
+    return <div>Whooops! something went wrong... Try again!</div>;
   }
 
   return (
     <div className={styles.Recipes}>
-      {data &&
-        data.hits.map((recipe) => (
-          <Recipe recipe={recipe} key={recipe.recipe.uri} />
-        ))}
+      {data?.hits.map((recipe) => (
+        <Recipe recipe={recipe} key={recipe.recipe.uri} />
+      ))}
       {data.hits.length === 0 ? <Empty /> : null}
     </div>
   );

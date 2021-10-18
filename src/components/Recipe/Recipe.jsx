@@ -1,9 +1,12 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import styles from "./Recipe.module.css";
 
 const Recipe = ({ recipe }) => {
+  const recipeId = recipe.recipe.uri.substring(44, 84);
+
   return (
-    <>
+    <Link to={`/recipes/${recipeId}`} className={styles.RecipeLink}>
       <div className={styles.Recipe}>
         <div className={styles.Image}>
           <img
@@ -17,7 +20,7 @@ const Recipe = ({ recipe }) => {
           <h5>{recipe.recipe.label}</h5>
         </div>
       </div>
-    </>
+    </Link>
   );
 };
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { useParams } from "react-router";
 import { useQuery } from "react-query";
-import { getRecipes } from "../../../utils/httpRequest/getRecipes";
+import axios from "axios";
 import { Link } from "react-router-dom";
 import { MdArrowBackIos } from "react-icons/md";
 import styles from "./RecipeDetails.module.css";
@@ -10,11 +10,20 @@ const RecipeDetails = () => {
   const { recipeId } = useParams();
   const path = `https://api.edamam.com/api/recipes/v2/${recipeId}?type=public&app_id=${process.env.REACT_APP_APP_ID}&app_key=${process.env.REACT_APP_API_KEY}`;
 
+  const getRecipe = async (path) => {
+    try {
+      const response = await axios.get(path);
+      return response.data;
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const {
     data: recipe,
     isError,
     error,
-  } = useQuery(["recipe", recipeId], () => getRecipes(path));
+  } = useQuery(["recipe", recipeId], () => getRecipe(path));
 
   if (isError) {
     return <div>Whoops something went wrong ... Error: {error.message}</div>;

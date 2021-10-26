@@ -1,12 +1,10 @@
 .SpinnerContainer {
   display: flex;
   justify-content: center;
-  font-size: clamp(1.2rem, 2vw, 3rem);
-  position: relative;
 }
 
 .spinner {
-  position: absolute;
+  font-size: 40px;
   animation: spin 1s linear infinite;
   margin: 20px;
 }

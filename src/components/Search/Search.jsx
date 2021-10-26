@@ -24,6 +24,7 @@ const Search = ({ setQuery }) => {
     }
     setQuery(debouncedSearch);
     history.push("/?search=" + debouncedSearch);
+    // eslint-disable-next-line
   }, [debouncedSearch]);
 
   return (

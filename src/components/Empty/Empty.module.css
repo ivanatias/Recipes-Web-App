@@ -1,6 +1,7 @@
 .EmptyMessage {
   font-size: clamp(1rem, 1.1vw, 2rem);
   font-weight: 600;
+  margin-top: 30px;
 }
 
 .Icon {
